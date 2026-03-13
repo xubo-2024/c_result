@@ -1,5 +1,7 @@
 /* print2.c-more printf() properties */
+
 #include<stdio.h>
+
 int main(void)
 {
     unsigned int un = 3000000000; /* system with 32-bit int */
@@ -15,6 +17,7 @@ int main(void)
     return 0;
 
 }
+
 /*
 Here is the output on one system(result can vary):
 un = 3000000000 and not -1294967296
