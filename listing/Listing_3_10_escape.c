@@ -13,3 +13,12 @@ int main(void)
 
     return 0;
 }
+
+/*
+The output will be looks like that:
+
+Enter your desired monthly salary: 30_____
+
+Gee!    $30.00 a month is $360.00 a year.
+
+*/
