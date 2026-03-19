@@ -9,7 +9,7 @@ Or,if you prefer, ask for the height in centimeters and convert that to inches.
 #include<stdlib.h>
 
 // 2. 常量声明（文件级静态常量）
-static const double INCH_TO_CM = 3.54;
+static const double INCH_TO_CM = 2.54;
 
 // 3. 函数声明（接口）--只告诉编译器函数的“样子”，不写实现
 double get_valid_input(const char* prompt); //输入校验函数声明
@@ -35,7 +35,7 @@ int main(void)
 
 // 5. 函数定义（实现细节） -- 全部放在mian之后
 //输入校验函数的具体实现
-double get_vaild_input(const char* prompt)
+double get_valid_input(const char* prompt)
 {
     double input;
     int ret;
@@ -48,28 +48,35 @@ double get_vaild_input(const char* prompt)
 
         //情况1：输入合法 ——> 退出循环
         if (ret == 1)
-        {
-            while (getchar() != "\n"); // 清空残留字符
+        {   
+           // 校验是否为正数
+            if (input <= 0)
+            {
+                printf("Error：Height must be a positive number!\n");
+                while (getchar() != '\n'); // 清空残留字符
+                continue;
+            }
+            while (getchar() != '\n'); // 清空残留字符
             break;
         }
 
         // 情况2：输入非法 ——>提示错误，重新循环
         printf("Error：Invalid input! Please enter a number.\n");
-         while (getchar() != "\n"); // 清空非法输入的缓冲区
+         while (getchar() != '\n'); // 清空非法输入的缓冲区
         
     }
 
     return input;
 }
 
-// 厘米转换英尺的具体实现
+// 厘米转换英寸的具体实现
 void cm_to_inch(double cm)
 {
     double inch = cm / INCH_TO_CM;
-    printf("Your height in inchs is %.2f\n",inch);  
+    printf("Your height in inches is %.2f\n",inch);  
 }
 
-//英尺转厘米的具体实现
+//英寸转厘米的具体实现
 void inch_to_cm(double inch)
 {
     double cm = inch * INCH_TO_CM;
