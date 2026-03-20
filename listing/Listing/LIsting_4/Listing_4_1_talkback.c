@@ -25,3 +25,18 @@ int main()
 
     return 0;
 }
+
+
+/*
+
+Running talkback.c produces results such as the following:
+
+Hi! What's your first name?
+bo
+bo, what's your weight in pounds?
+176
+Well, bo, your volume is 2.82 cubic feet.
+Also, Your first name has 2  letters,
+and we have 40 bytes to store it.
+
+*/
